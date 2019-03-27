@@ -1,0 +1,161 @@
+html, body {
+  font-family: "Century Gothic";
+  padding: 0;
+  margin: 25px 50px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  float: right;
+  margin: -25px 0 0;
+}
+
+li .dropbtn{
+  margin-top: -3px;
+}
+li a, .dropbtn {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: "Century Gothic";
+  font-size: 20px;
+  color: grey;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px 0;
+}
+
+li a:visited{
+  color: grey;
+}
+
+li a:active{
+  color: black;
+}
+
+li a:hover{
+  color: black;
+}
+
+li.dropdown {
+  display: inline-block;
+  width: auto;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #515151;
+  width: 182px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #3A3A3A}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#photos {
+  display: -ms-flexbox;
+  -ms-flex-wrap: wrap;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  flex-flow: row wrap;
+  display: -webkit-box;
+  display: flex;
+  position: relative;
+  align-content: center;
+  column-gap: 0;
+}
+
+#photos div {
+  -ms-flex: auto;
+  flex: auto;
+  height: 300px;
+  margin-bottom: 5px;
+}
+
+#photos div img{
+  width: auto !important;
+  height: 100% !important;
+
+}
+
+#photos img:hover {
+  /* Just in case there are inline attributes */
+  opacity:0.7;
+  transition: opacity .4s ease-out;
+  -moz-transition: opacity .4s ease-out;
+  -webkit-transition: opacity .4s ease-out;
+  -o-transition: opacity .4s ease-out;
+}
+
+@media screen and (max-width: 40px) {
+  #photos div{
+    margin: 0;
+  }
+
+  #photos{
+    padding: 0;
+  }
+}
+
+#caption{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}

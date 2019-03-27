@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="keywords" lang="de" content="Fotografie"/>
+  <meta name="description" content="Fotografie von Dimitri Wehrli."/>
+  <title>Dimitri Fotografie</title>
+  <link rel="stylesheet" href="../stylesheets/index_stylesheet.css"/>
+  <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<div id="home">
+  <a href="index.html"><img src="../images/logo.png"></a>
+</div>
+<ul class="navbar">
+  <li class="dropdown">
+    <a href="videos.html">Videos</a>
+
+  </li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Landscape⮟</a>
+    <!--<div class="dropdown-content">
+        <a href="infos/mittelmeer.html">Mittelmeer</a>
+        <a href="infos/atlantik.html">Atlantischer Ozean</a>
+    </div>-->
+  </li>
+  <li>
+    <a href="">About</a>
+  </li>
+</ul>
+
+<br/>
+
+<div id="photos">
+
+</div>
+
+<script>
+
+  var images = [
+    {url: '../images/Cogoleto/BeachStone.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff1.1.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff1.2.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff1.3.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff1.4.JPG'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff1.5.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff2.1.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff2.2.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff2.3.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff2.4.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff2.5.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff3.1.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff3.2.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff3.3.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff3.4.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Cliff3.5.jpg'},
+    {url: '../images/Cogoleto/Cogoleto_Stairs.jpg'},
+    {url: '../images/Cogoleto/Cogoleto1.jpg'},
+    {url: '../images/Cogoleto/Foambeach.jpg'},
+    {url: '../images/Cogoleto/HouseOnCliff.jpg'},
+    {url: '../images/Cogoleto/MacroDrop.jpg'},
+    {url: '../images/Cogoleto/MacroStonetower.jpg'},
+    {url: '../images/Cogoleto/PalmSea.jpg'},
+    {url: '../images/Cogoleto/PalmSeaBlur.jpg'},
+    {url: '../images/Cogoleto/Waves.jpg'},
+    {url: '../images/Andelfingen/Andelfingen1.jpg'},
+    {url: '../images/Andelfingen/Andelfingen2.jpg'},
+    {url: '../images/Andelfingen/Andelfingen3.jpg'},
+    {url: '../images/Cities/Winti/GoldenbergSunset.jpg'},
+    {url: '../images/Cities/Winti/GoldenbergSunset2.jpg'},
+    {url: '../images/Andelfingen/Thurbrücke.jpg'},
+    {url: '../images/Cities/Zurich/Stadelhofen.jpg'},
+    {url: '../images/Cities/Zurich/LakeZurich.jpg'},
+    {url: '../images/Montpellier2018/ArcDeTriomphe_Col.jpg'},
+    {url: '../images/Cities/Lucerne/Lucerne.jpg'},
+    {url: '../images/Cities/Rapperswil/Rappi1.jpg'},
+    {url: '../images/Cities/Rapperswil/Rappi3.jpg'},
+    {url: '../images/Médoc/BoordeauxPalace.jpg'},
+    {url: '../images/Montpellier2018/ArcDeTriomphe_BW.jpg'},
+    {url: '../images/Montpellier2018/Avignon.jpg'},
+    {url: '../images/Fleatchy/Fleatchy1.jpg'},
+    {url: '../images/Fleatchy/Fleatchy2.jpg'},
+    {url: '../images/Fleatchy/Fleatchy3.jpg'},
+    {url: '../images/Fleatchy/Fleatchy4.jpg'},
+    {url: '../images/Fleatchy/Fleatchy5.jpg'},
+    {url: '../images/Fleatchy/Fleatchy6.jpg'},
+    {url: '../images/Katzen/Minka1.jpg'},
+    {url: '../images/Katzen/Minka2.jpg'},
+    {url: '../images/Katzen/Minka3.jpg'},
+    {url: '../images/Katzen/Minka4.jpg'},
+    {url: '../images/Katzen/Minka5.jpg'},
+    {url: '../images/Katzen/Minka6.jpg'},
+    {url: '../images/Forest/Woods.jpg'},
+    {url: '../images/Mountains/HolyPlace.jpg'},
+    {url: '../images/Mountains/HolyWoods.jpg'},
+    {url: '../images/Médoc/CapFerret.jpg'},
+    {url: '../images/Andelfingen/Cornfield.jpg'},
+    {url: '../images/Forest/Treepath.jpg'},
+    {url: '../images/Andelfingen/StreetsOfAfi.jpg'},
+    {url: '../images/Andelfingen/AndelfingenForest.jpg'},
+    {url: '../images/Forest/TreepathTrees.jpg'},
+    {url: '../images/Montpellier2018/MontpellierSunset.jpg'},
+    {url: '../images/Montpellier2018/PontDuGard.jpg'},
+    {url: '../images/Mountains/GrabündenMountains.jpg'},
+    {url: '../images/Mountains/AutumnInAlps.jpg'}
+  ];
+
+
+  var lazy = [];
+
+  function isVisible(el) {
+    var rect = el.getBoundingClientRect();
+    var vh = window.innerHeight;
+    console.log(rect.top - vh)
+    return !(rect.top - vh >= 0);
+  }
+
+  function addImages(div, image) {
+    //for (var i = 0; i < image.length; i++) {
+      var a = document.createElement('a');
+      var img = document.createElement('img');
+
+      a.style.width = 200;
+      a.style.height = 300;
+      a.setAttribute('href', image.url);
+      img.url = image.url;
+
+      a.appendChild(img);
+      div.appendChild(a);
+
+      if (!isVisible(img)) {
+        lazy.push(img);
+      } else {
+        img.src = image.url;
+      }
+    //}
+  };
+
+  var counter = 0;
+  for (var j = 0; j < images.length; j++) {
+    var imageId = document.createElement('div');
+    counter++;
+    imageId.id = counter.toString();
+    document.getElementById('photos').appendChild(imageId);
+    addImages(imageId, images[j]);
+  }
+  ;
+
+  //addImages(document.getElementById('city'), city);
+  /*addImages(document.getElementById('fleatchy'), fleatchy);
+  addImages(document.getElementById('cat'), cat);
+  addImages(document.getElementById('cogoleto'), cogoleto);
+  addImages(document.getElementById('random'), random);*/
+
+
+  var positionY = 0;
+  window.addEventListener('onload', function () {
+
+    window.addEventListener('onscroll', function (e) {
+      var newY = document.documentElement.scrollHeight;
+
+      if (positionY >= newY) {
+        for (var i = 0; i < lazy.length; i++) {
+          var el = lazy[i];
+          if (isVisible(el)) {
+            el.src = el.url;
+            lazy.splice(i, i + 1);
+          }
+        }
+      }
+
+      positionY = newY;
+    });
+
+  });
+
+</script>
+</body>
+</html>
