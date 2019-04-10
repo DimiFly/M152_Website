@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="keywords" lang="de" content="Fotografie"/>
-  <meta name="description" content="Fotografie von Dimitri Wehrli."/>
-  <title>Dimitri Fotografie</title>
-  <link rel="stylesheet" href="../stylesheets/index_stylesheet.css"/>
-  <script src="../jquery-3.3.1.js"></script>
+    <meta charset="UTF-8">
+    <meta name="keywords" lang="de" content="Fotografie"/>
+    <meta name="description" content="Fotografie von Dimitri Wehrli."/>
+    <title>Dimitri Fotografie</title>
+    <link rel="stylesheet" href="../stylesheets/videos_stylesheet.css"/>
+    <script src="../jquery-3.3.1.js"></script>
 </head>
 <body>
-
 <div id="home">
-  <a href="index.html"><img src="../images/logo.png"></a>
+    <a href="index.html"><img src="../images/logo.png"></a>
 </div>
 <ul class="navbar">
-  <li class="dropdown">
-    <a href="videos.html">Videos</a>
-
-  </li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Landscape⮟</a>
-    <!--<div class="dropdown-content">
-        <a href="infos/mittelmeer.html">Mittelmeer</a>
-        <a href="infos/atlantik.html">Atlantischer Ozean</a>
-    </div>-->
-  </li>
-  <li>
-    <a href="">About</a>
-  </li>
+    <li>
+        <a href="index.html">Galerie</a>
+    </li>
+    <li>
+        <a href="#home" class="active">Videos</a>
+    </li>
+    <li>
+        <a href="audio.html">Audio</a>
+    </li>
+    <li>
+        <a href="about.html">About</a>
+    </li>
 </ul>
 
 <br/>
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="column">
+            <div class="iframe-wrapper responsive-video">
+                <iframe src="https://www.youtube.com/embed/r25IWquxe9s" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="column">
+            <div class="iframe-wrapper responsive-video">
+                <iframe src="https://www.youtube.com/embed/MfxieNTAvkQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="iframe-wrapper responsive-video">
+                <iframe src="https://www.youtube.com/embed/eWRBJMD2uR8" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="column">
+            <div class="iframe-wrapper responsive-video">
+                <iframe src="https://player.twitch.tv/?channel=summonersinnlive" frameborder="0" allowfullscreen="true"
+                        scrolling="no"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

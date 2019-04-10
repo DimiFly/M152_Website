@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="keywords" lang="de" content="Fotografie"/>
-  <meta name="description" content="Fotografie von Dimitri Wehrli."/>
-  <title>Dimitri Fotografie</title>
-  <link rel="stylesheet" href="../stylesheets/index_stylesheet.css"/>
-  <script src="../jquery-3.3.1.js"></script>
+    <meta charset="UTF-8">
+    <meta name="keywords" lang="de" content="Fotografie"/>
+    <meta name="description" content="Fotografie von Dimitri Wehrli."/>
+    <title>Dimitri Fotografie</title>
+    <link rel="stylesheet" href="../stylesheets/index_stylesheet.css"/>
+    <script src="../jquery-3.3.1.js"></script>
 </head>
 <body>
 <div id="home">
-  <a href="index.html"><img src="../images/logo.png"></a>
+    <a href="index.html"><img src="../images/logo.png"></a>
 </div>
 <ul class="navbar">
-  <li class="dropdown">
-    <a href="videos.html">Videos</a>
-
-  </li>
-  <li class="dropdown">
-    <a href="javascript:void(0)" class="dropbtn">Landscape⮟</a>
-    <!--<div class="dropdown-content">
-        <a href="infos/mittelmeer.html">Mittelmeer</a>
-        <a href="infos/atlantik.html">Atlantischer Ozean</a>
-    </div>-->
-  </li>
-  <li>
-    <a href="">About</a>
-  </li>
+    <li>
+        <a href="#home" class="active">Galerie</a>
+    </li>
+    <li>
+        <a href="videos.html">Videos</a>
+    </li>
+    <li>
+        <a href="audio.html">Audio</a>
+    </li>
+    <li>
+        <a href="about.html">About</a>
+    </li>
 </ul>
 
 <br/>
@@ -110,39 +108,34 @@
 
   function isVisible(el) {
     var rect = el.getBoundingClientRect();
-    var vh = window.innerHeight;
-    console.log(rect.top - vh)
-    return !(rect.top - vh >= 0);
+    var vh = Math.max(document.documentElement.clientHeight, window.innerHeight);
+    return (!(rect.bottom < 0 || rect.top - vh >= 0));
   }
 
   function addImages(div, image) {
-    //for (var i = 0; i < image.length; i++) {
-      var a = document.createElement('a');
-      var img = document.createElement('img');
+    var a = document.createElement('a');
+    a.setAttribute('href', image.url);
 
-      a.style.width = 200;
-      a.style.height = 300;
-      a.setAttribute('href', image.url);
-      img.url = image.url;
+    var img = document.createElement('img');
+    img.style.minWidth = '200px';
+    img.style.minHeight = '300px';
+    img.url = image.url;
 
-      a.appendChild(img);
-      div.appendChild(a);
+    a.appendChild(img);
+    div.appendChild(a);
 
-      if (!isVisible(img)) {
-        lazy.push(img);
-      } else {
-        img.src = image.url;
-      }
-    //}
+    if (isVisible(img)) {
+      img.src = image.url;
+    } else {
+      lazy.push(img);
+    }
   };
 
-  var counter = 0;
-  for (var j = 0; j < images.length; j++) {
+  for (var i = 0; i < images.length; i++) {
     var imageId = document.createElement('div');
-    counter++;
-    imageId.id = counter.toString();
+    imageId.id = i.toString();
     document.getElementById('photos').appendChild(imageId);
-    addImages(imageId, images[j]);
+    addImages(imageId, images[i]);
   }
   ;
 
@@ -153,25 +146,17 @@
   addImages(document.getElementById('random'), random);*/
 
 
-  var positionY = 0;
-  window.addEventListener('onload', function () {
-
-    window.addEventListener('onscroll', function (e) {
-      var newY = document.documentElement.scrollHeight;
-
-      if (positionY >= newY) {
-        for (var i = 0; i < lazy.length; i++) {
-          var el = lazy[i];
-          if (isVisible(el)) {
-            el.src = el.url;
-            lazy.splice(i, i + 1);
-          }
-        }
+  window.addEventListener('scroll', function (e) {
+    for (var i = 0; i < lazy.length; i++) {
+      var img = lazy[i];
+      if (isVisible(img)) {
+        img.src = img.url;
+        img.style.minWidth = 'auto';
+        img.style.minHeight = 'auto';
+        lazy.splice(i, 1);
+        img.animate({opacity: '0.5'}, 50);
       }
-
-      positionY = newY;
-    });
-
+    }
   });
 
 </script>
