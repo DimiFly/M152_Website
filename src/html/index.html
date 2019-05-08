@@ -7,31 +7,77 @@
     <title>Dimitri Fotografie</title>
     <link rel="stylesheet" href="../stylesheets/index_stylesheet.css"/>
     <script src="../jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 <body>
-<div id="home">
-    <a href="index.html"><img src="../images/logo.png"></a>
-</div>
-<ul class="navbar">
-    <li>
-        <a href="#home" class="active">Galerie</a>
-    </li>
-    <li>
-        <a href="videos.html">Videos</a>
-    </li>
-    <li>
-        <a href="audio.html">Audio</a>
-    </li>
-    <li>
-        <a href="about.html">About</a>
-    </li>
-</ul>
-
-<br/>
-
-<div id="photos">
-
-</div>
+<!--https://stackoverflow.com/questions/19733447/bootstrap-navbar-with-left-center-or-right-aligned-items/20362024#20362024-->
+<nav class="navbar navbar-expand-lg navbar-dark ">
+    <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+        <a class="active1 navbar-brand" href="#">
+            Dimitri Wehrli
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <a href="#" class="nav-link active">Galerie</a>
+            </li>
+            <li class="nav-item">
+                <a href="./videos.html" class="nav-link">Videos</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Audio</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">About</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link m-2 menu-item" href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="d-flex flex-grow-1">
+        <a class="navbar-brand d-none d-lg-inline-block" href="#">Dimitri Wehrli</a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar"></div>
+    <ul class="navbar-nav m1-auto flex-nowrap">
+        <li class="nav-item">
+            <a class="nav-link m-2 menu-item nav-active" href="#">Galerie</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link m-2 menu-item" href="videos.html">Videos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link m-2 menu-item" href="audio.html">Audio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link m-2 menu-item" href="about.html">About</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link m-2 menu-item" href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </li>
+    </ul>
+    </div>
+</nav>-->
+<div id="photos"></div>
 
 <script>
 
